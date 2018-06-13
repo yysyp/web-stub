@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/161813/how-to-resolve-merge-conflicts-in-git
+
+git remote add yysyp https://github.com/yysyp/web-stub.git
+git commit --author="yysyp <yysyp@foxmail.com>" -m "whatever"
+
+
+multiple viewer:
+https://o7planning.org/en/11257/using-multiple-viewresolvers-in-spring-boot
+

@@ -16,7 +16,13 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http
+                .authorizeRequests()
+                .antMatchers("/css/**", "/index", "/static/**", "/ok/**", "/page/**", "/user/**").permitAll()
+                .antMatchers("/user2/**").hasRole("USER")
+                .and()
+                .formLogin();
+                //.loginPage("/login").failureUrl("/login-error");
     }
 
     @Override
