@@ -653,3 +653,241 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/codebase/
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
 	... 161 more
+2018-06-14 15:45:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+        WHERE
+         WHERE[*] USERNAME=?
+             PASSWORD=?
+             PHONE=?) TMP_COUNT "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+        WHERE
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:45:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+        WHERE
+         WHERE[*] USERNAME=?
+             PASSWORD=?
+             PHONE=?) TMP_COUNT "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+        WHERE
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:45:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+        WHERE
+         WHERE[*] USERNAME=?
+             PASSWORD=?
+             PHONE=?) TMP_COUNT "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+        WHERE
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:45:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+        WHERE
+         WHERE[*] USERNAME=?
+             PASSWORD=?
+             PHONE=?) TMP_COUNT "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+        WHERE
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:45:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+        WHERE
+         WHERE[*] USERNAME=?
+             PASSWORD=?
+             PHONE=?) TMP_COUNT "; expected "NOT, EXISTS, INTERSECTS, SELECT, FROM, WITH"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+        WHERE
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:48:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+             PASSWORD[*]=?
+             PHONE=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:48:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+             PASSWORD[*]=?
+             PHONE=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:48:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+             PASSWORD[*]=?
+             PHONE=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:50:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+             PASSWORD[*]=?
+             PHONE=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:50:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+             PASSWORD[*]=?
+             PHONE=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+             password=?
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:51:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+            
+             PHONE[*]=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+            
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:52:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+            
+             PHONE[*]=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+            
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:52:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+            
+             PHONE[*]=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+            
+             phone=?) tmp_count [42001-197]
+2018-06-14 15:53:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT COUNT(0) FROM (SELECT
+         USERID,USERNAME,PASSWORD,PHONE 
+        FROM
+         T_USER 
+
+         WHERE USERNAME=?
+
+             PHONE[*]=?) TMP_COUNT "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, GROUP, HAVING, UNION, MINUS, EXCEPT, INTERSECT, ORDER, OFFSET, FETCH, LIMIT, FOR, )"; SQL statement:
+select count(0) from (SELECT
+         userId,userName,password,phone 
+        FROM
+         t_user 
+
+         WHERE userName=?
+
+             phone=?) tmp_count [42001-197]

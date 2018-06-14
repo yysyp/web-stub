@@ -1,5 +1,6 @@
 package com.ddm.dao;
 
+import com.ddm.model.UserCondition;
 import com.ddm.model.UserDomain;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,4 +16,5 @@ public interface UserMapper {
 
     List<UserDomain> selectUsers();
 
+    List<UserDomain> selectUsersByCondition(UserCondition userCondition);
 }

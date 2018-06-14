@@ -29,4 +29,17 @@
         <include refid="BASE_TABLE"/>
     </select>
 
+    <select id="selectUsersByCondition" resultType="com.ddm.model.UserDomain" parameterType="com.ddm.model.UserCondition">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+
+        <where>
+            <if test="userName != null"><![CDATA[ userName=#{userName,jdbcType=VARCHAR} ]]></if>
+            <if test="password != null"><![CDATA[ AND password=#{password,jdbcType=VARCHAR} ]]></if>
+            <if test="phone != null"><![CDATA[ AND phone=#{phone,jdbcType=VARCHAR} ]]></if>
+        </where>
+    </select>
+
 </mapper>
