@@ -8,6 +8,8 @@ import com.github.pagehelper.PageInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public int addUser(UserDomain user) {
 
@@ -36,6 +39,7 @@ public class UserServiceImpl implements UserService {
         return result;
     }
 
+    @Transactional(readOnly = true)
     @Override
     public PageInfo<UserDomain> findUserBy(int pageNum, int pageSize, UserCondition uc) {
         List<UserDomain> userDomains = userMapper.selectUsersByCondition(uc);

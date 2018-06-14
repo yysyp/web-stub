@@ -1,6 +1,6 @@
 https://stackoverflow.com/questions/161813/how-to-resolve-merge-conflicts-in-git
 
-Console: http://localhost:8888/console/
+H2-Console: http://localhost:8888/h2-console
 
 ---------------------------------------------------------------
 git remote add yysyp https://github.com/yysyp/web-stub.git

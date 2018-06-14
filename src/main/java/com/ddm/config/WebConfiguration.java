@@ -7,12 +7,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
+
+//Comment this class configure out, use application.properties h2-console instead.
+//@Configuration
 public class WebConfiguration {
-    @Bean
+    //@Bean
     ServletRegistrationBean h2servletRegistration(){
         ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-        registrationBean.addUrlMappings("/console/**");
+        registrationBean.addUrlMappings("/h2-console/**");
         return registrationBean;
     }
 }
