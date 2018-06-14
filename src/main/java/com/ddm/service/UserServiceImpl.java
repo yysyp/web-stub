@@ -1,6 +1,6 @@
 package com.ddm.service;
 
-import com.ddm.dao.UserDao;
+import com.ddm.dao.UserMapper;
 import com.ddm.model.UserDomain;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -17,12 +17,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Override
     public int addUser(UserDomain user) {
 
-        return userDao.insert(user);
+        return userMapper.insert(user);
     }
 
 
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public PageInfo<UserDomain> findAllUser(int pageNum, int pageSize) {
 
         PageHelper.startPage(pageNum, pageSize);
-        List<UserDomain> userDomains = userDao.selectUsers();
+        List<UserDomain> userDomains = userMapper.selectUsers();
         PageInfo result = new PageInfo(userDomains);
         return result;
     }

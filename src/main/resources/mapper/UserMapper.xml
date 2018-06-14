@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ddm.dao.UserDao" >
-    <sql id="BASE_TABLE">
-        t_user
-    </sql>
+<mapper namespace="com.ddm.dao.UserMapper" >
+    <sql id="BASE_TABLE">t_user</sql>
 
-    <sql id="BASE_COLUMN">
-        userId,userName,password,phone
-    </sql>
+    <sql id="BASE_COLUMN">userId,userName,password,phone</sql>
 
     <insert id="insert" parameterType="com.ddm.model.UserDomain">
         INSERT INTO
@@ -32,6 +28,5 @@
         FROM
         <include refid="BASE_TABLE"/>
     </select>
-
 
 </mapper>

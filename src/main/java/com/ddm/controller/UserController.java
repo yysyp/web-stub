@@ -27,7 +27,7 @@ public class UserController {
     public Object findAllUser(
             @RequestParam(name = "pageNum", required = false, defaultValue = "1")
                     int pageNum,
-            @RequestParam(name = "pageSize", required = false, defaultValue = "10")
+            @RequestParam(name = "pageSize", required = false, defaultValue = "5")
                     int pageSize) {
         return userService.findAllUser(pageNum, pageSize);
     }

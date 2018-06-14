@@ -9,12 +9,10 @@ import java.util.List;
  * Created by yunpeng.song on 6/13/2018.
  */
 //@Mapper
-public interface UserDao {
-
+public interface UserMapper {
 
     int insert(UserDomain record);
 
-
-
     List<UserDomain> selectUsers();
+
 }

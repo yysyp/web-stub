@@ -1,5 +1,7 @@
 https://stackoverflow.com/questions/161813/how-to-resolve-merge-conflicts-in-git
 
+Console: http://localhost:8888/console/
+
 ---------------------------------------------------------------
 git remote add yysyp https://github.com/yysyp/web-stub.git
 git commit --author="yysyp <yysyp@foxmail.com>" -m "whatever"
@@ -15,4 +17,27 @@ git push -u origin master
 
 multiple viewer:
 https://o7planning.org/en/11257/using-multiple-viewresolvers-in-spring-boot
+
+
+
+
+cd .
+
+rem JAVA_HOME=/usr/local/jdk
+rem JAVA_OPTS=-Xmx2048m
+rem LOG_FOLDER=/data/logs/myapp
+
+rem java -server -Xms512m -Xmx2048m -XX:PermSize=128m -XX:MaxNewSize=256m -XX:MaxPermSize=256m -jar target/easyplay-sqe.war --spring.config.location=application_prod.properties
+
+java -jar target/xxxx.war --spring.config.location=application_prod.properties
+
+pause;
+
+hsqldb with springboot: https://www.mkyong.com/spring/spring-view-content-of-hsqldb-embedded-database/
+
+
+
+
+
+
 
