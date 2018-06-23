@@ -1,7 +1,11 @@
+
+----:
 https://stackoverflow.com/questions/161813/how-to-resolve-merge-conflicts-in-git
 
+----H2:
 H2-Console: http://localhost:8888/h2-console
 
+----Git
 ---------------------------------------------------------------
 git remote add yysyp https://github.com/yysyp/web-stub.git
 git commit --author="yysyp <yysyp@foxmail.com>" -m "whatever"
@@ -10,17 +14,19 @@ git push -u origin master
 >Username for 'https://github.com': yysyp
 >
 ---------------------------------------------------------------
-
 #git config --global user.name "yourname"
 #git config --global user.email“your@email.com"
 
+----swagger:
+For swagger html UI which is used for parsing swagger.json and display into html page. There are two options:
+1, springfox-swagger-ui dependency implements html ui, don't need to add any html to project, page: http://localhost:8888/swagger-ui.html
+2, Or you can download swagger-ui-master extract dist into a folder under webapp. ex: web-stub\src\main\resources\static\swagger, page: http://localhost:8888/swagger/index.html
 
-multiple viewer:
+
+----multiple viewer:
 https://o7planning.org/en/11257/using-multiple-viewresolvers-in-spring-boot
 
-
-
-
+----bat:
 cd .
 
 rem JAVA_HOME=/usr/local/jdk
@@ -33,7 +39,9 @@ java -jar target/xxxx.war --spring.config.location=application_prod.properties
 
 pause;
 
-hsqldb with springboot: https://www.mkyong.com/spring/spring-view-content-of-hsqldb-embedded-database/
+
+----hsqldb with springboot:
+https://www.mkyong.com/spring/spring-view-content-of-hsqldb-embedded-database/
 
 
 

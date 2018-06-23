@@ -36,4 +36,5 @@ public class PageController {
         model.addAttribute("name","seawater");
         return "th_hello";
     }
+
 }

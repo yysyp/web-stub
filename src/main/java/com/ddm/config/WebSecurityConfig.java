@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                //.loginPage("/login").failureUrl("/login-error");
 
         //For h2
-        http.authorizeRequests().antMatchers("/").permitAll().and()
+        http.authorizeRequests().antMatchers("/**").permitAll().and()
                 .authorizeRequests().antMatchers( "/h2-console/**").permitAll();
         http.csrf().disable();
         http.headers().frameOptions().disable();
