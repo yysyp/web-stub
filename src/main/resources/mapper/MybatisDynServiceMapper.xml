@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ddm.dao.MybatisDynServiceMapper" >
+
+    <insert id="insertData" parameterType="map">
+        insert into ${table_name}
+        <foreach collection="fields" index="field"  item="fieldVal" separator="," open="(" close=")">
+            ${field}
+        </foreach>
+        values
+        <foreach collection="list" index="index" item="record" separator="," >
+            <foreach collection="record" index="key"  item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </foreach>
+    </insert>
+
+    <insert id="updateData" parameterType="map">
+        INSERT INTO ${table_name}
+        <foreach collection="fields" index="field"  item="fieldVal" separator="," open="(" close=")">
+            ${field}
+        </foreach>
+        VALUES
+        <foreach collection="list" index="index" item="record" separator="," >
+            <foreach collection="record" index="key"  item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        <foreach collection="fields" index="field"  item="fieldVal" separator=",">
+            ${field}=VALUES(${field})
+        </foreach>
+    </insert>
+
+
+
+</mapper>

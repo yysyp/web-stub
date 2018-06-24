@@ -1,7 +1,7 @@
 package com.ddm.service;
 
 import com.ddm.dao.CommonSqlMapper;
-import com.ddm.dao.UserMapper;
+import com.ddm.dto.MyTableRow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -22,6 +22,30 @@ public class SqlServiceImpl implements SqlService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public List<Map<String, ?>> runSql(String sql) {
-        return commonSqlMapper.select(sql);
+        return commonSqlMapper.runSql(sql);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int create(MyTableRow tableRow) {
+        return commonSqlMapper.insert(tableRow.toMybatisParamMap());
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public List<Map<String, ?>> retrieve(MyTableRow tableRow) {
+        return commonSqlMapper.select(tableRow.toMybatisParamMap());
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int update(MyTableRow tableRow) {
+        return commonSqlMapper.update(tableRow.toMybatisParamMap());
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    @Override
+    public int delete(MyTableRow tableRow) {
+        return commonSqlMapper.delete(tableRow.toMybatisParamMap());
     }
 }

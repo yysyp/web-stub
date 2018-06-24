@@ -1,4 +1,5 @@
 
+===============================================================================
 ----:
 https://stackoverflow.com/questions/161813/how-to-resolve-merge-conflicts-in-git
 
@@ -44,8 +45,17 @@ pause;
 https://www.mkyong.com/spring/spring-view-content-of-hsqldb-embedded-database/
 
 
+-----------------------------------------------------------------------------
+Dev steps:
+
+----H2 create table:
+H2-Console: http://localhost:8888/h2-console
+
+
+----Visit page:
+https://blog.csdn.net/hj7jay/article/details/51907652
+http://www.blogjava.net/dbstar/archive/2011/08/08/355825.html
 
 
 
-
-
+===============================================================================
