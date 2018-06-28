@@ -39,6 +39,18 @@ Or when a mouse button is clicked on an element, in this order:
 3, ng-click
 You can add mouse events on any HTML element.
 
+
+*Include a file in your web page, and all AngularJS code will be executed, even the code inside the included file.
+By default, the ng-include directive does not allow you to include files from other domains.
+To include files from another domain, you can add a whitelist of legal files and/or domains in the config function of your application.
+app.config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'https://tryit.w3schools.com/**'
+    ]);
+});
+
+Be sure that the server on the destination allows cross domain file access.
+
 </pre>
 <hr/>
 
@@ -124,6 +136,19 @@ Full Name: {{firstName + " " + lastName}}
 
 <p>The ng-switch directive hides and shows HTML sections depending on the value of the radio buttons.</p>
 
+<hr/>
+
+<p>Try writing in the input field:</p>
+
+<form name="myForm2">
+    <input name="myInput" ng-model="myInput" required my-directive>
+</form>
+
+<p>The input's valid state is:</p>
+<h1>{{myForm2.myInput.$valid}}</h1>
+<p>The input field must contain the character "e" to be consider valid.</p>
+<hr/>
+
 <script>
     /** The [] parameter in the module definition can be used to define dependent modules.
     Without the [] parameter, you are not creating a new module, but retrieving an existing one.
@@ -152,10 +177,29 @@ Full Name: {{firstName + " " + lastName}}
 
     });
 
+
     app.directive("w3TestDirective", function() {
         return {
             restrict : "EACM",
             template : "<h1>Made by a directive!</h1>"
+        };
+    });
+
+
+    app.directive("myDirective", function() {
+        return {
+            require: "ngModel",
+            link: function(scope, element, attr, mCtrl) {
+                function myValidation(value) {
+                    if (value.indexOf("e") > -1) {
+                        mCtrl.$setValidity("charE", true);
+                    } else {
+                        mCtrl.$setValidity("charE", false);
+                    }
+                    return value;
+                }
+                mCtrl.$parsers.push(myValidation);
+            }
         };
     });
 
@@ -181,6 +225,7 @@ Full Name: {{firstName + " " + lastName}}
     }]);
 
 </script>
+
 
 
 
