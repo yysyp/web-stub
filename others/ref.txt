@@ -45,6 +45,10 @@ pause;
 https://www.mkyong.com/spring/spring-view-content-of-hsqldb-embedded-database/
 
 
+----Sprint security：
+https://blog.csdn.net/u012702547/article/details/54319508
+https://www.jianshu.com/p/08cc28921fd0
+
 -----------------------------------------------------------------------------
 Dev steps:
 
@@ -57,5 +61,26 @@ https://blog.csdn.net/hj7jay/article/details/51907652
 http://www.blogjava.net/dbstar/archive/2011/08/08/355825.html
 
 
+----Angular:
+1, Angular official recommend tool angular cli:
+https://angular.io/guide/quickstart
+base on Nodejs and npm
+
+install Angular CLI:
+npm install -g @angular/cli
+
+Angular CLI generate my-app:
+ng new my-app
+
+Go to the project directory and launch the server：
+cd my-app
+ng serve --open
+
+The ng serve command launches the server, watches your files, and rebuilds the app as you make changes to those files.
+Using the --open (or just -o) option will automatically open your browser on http://localhost:4200/.
+
+
+1, Simple start only angular.
+https://www.w3schools.com/angular/angular_expressions.asp
 
 ===============================================================================
