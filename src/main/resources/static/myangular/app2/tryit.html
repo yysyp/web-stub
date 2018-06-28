@@ -20,6 +20,25 @@ The ng-model directive binds the value of HTML controls (input, select, textarea
 
 The ng-app directive defines the root element of an AngularJS application.
 The ng-app directive will auto-bootstrap (automatically initialize) the application when a web page is loaded.
+
+
+Directive legal restrict values are:
+E for Element name
+A for Attribute
+C for Class
+M for Comment
+
+Mouse events occur when the cursor moves over an element, in this order:
+1, ng-mouseenter
+2, ng-mouseover
+3, ng-mousemove
+4, ng-mouseleave
+Or when a mouse button is clicked on an element, in this order:
+1, ng-mousedown
+2, ng-mouseup
+3, ng-click
+You can add mouse events on any HTML element.
+
 </pre>
 <hr/>
 
@@ -35,38 +54,136 @@ Full Name: {{firstName + " " + lastName}}
 
     <p>Total in dollar: <span ng-bind="quantity * cost"></span></p>
 
-    <p>The name is {{ person.lastName }}</p>
+    *Filters can be added to expressions by using the pipe character |, followed by a filter.
+    <p>The name is {{ person.lastName | uppercase }}</p>
+
+    *Custom filter:
+    <p>The name is {{ person.lastName | myFormat }}</p>
+
 
     <p>The third result is {{ points[2] }}</p>
 
     <p>Looping with ng-repeat:</p>
     <ul>
-        <li ng-repeat="x in names">
+        <li ng-repeat="x in names | filter : 'i'">
             {{ x }}
         </li>
     </ul>
+
+
+    <select ng-model="selectedCar" ng-options="y.brand for (x, y) in cars">
+    </select>
+    <h1>You selected: {{selectedCar}}</h1>
+
+
+
+
+
+
+
+
+
 </div>
 
 <hr/>
 <w3-test-directive></w3-test-directive>
 <hr/>
 
+
+<form name="myForm" ng-init="myText = 'post@myweb.com'">
+    Email:
+    <input type="email" name="myAddress" ng-model="myText" required>
+    <h1>Status</h1>
+    {{myForm.myAddress.$valid}}
+    {{myForm.myAddress.$dirty}}
+    {{myForm.myAddress.$touched}}
+</form>
+
+
+<form>
+    Pick a topic:
+    <input type="radio" ng-model="myVar" value="dogs">Dogs
+    <input type="radio" ng-model="myVar" value="tuts">Tutorials
+    <input type="radio" ng-model="myVar" value="cars">Cars
+</form>
+
+<div ng-switch="myVar">
+    <div ng-switch-when="dogs">
+        <h1>Dogs</h1>
+        <p>Welcome to a world of dogs.</p>
+    </div>
+    <div ng-switch-when="tuts">
+        <h1>Tutorials</h1>
+        <p>Learn from examples.</p>
+    </div>
+    <div ng-switch-when="cars">
+        <h1>Cars</h1>
+        <p>Read about cars.</p>
+    </div>
+</div>
+
+<p>The ng-switch directive hides and shows HTML sections depending on the value of the radio buttons.</p>
+
 <script>
     /** The [] parameter in the module definition can be used to define dependent modules.
     Without the [] parameter, you are not creating a new module, but retrieving an existing one.
     **/
     var app = angular.module('myApp', []);
+
+    /** In AngularJS, $scope is the application object (the owner of application variables and functions).
+     * The scope is available for both the view and the controller.
+     * In the view, you do not use the prefix $scope, you just refer to a propertyname, like {{carname}}.
+     * ----------
+     If we consider an AngularJS application to consist of:
+     1, View, which is the HTML.
+     2, Model, which is the data available for the current view.
+     3, Controller, which is the JavaScript function that makes/changes/removes/controls the data.
+     Then the scope is the Model.
+     * */
     app.controller('myCtrl', function($scope) {
         $scope.firstName= "John";
         $scope.lastName= "Doe";
+
+        $scope.cars = {
+            car01 : {brand : "Ford", model : "Mustang", color : "red"},
+            car02 : {brand : "Fiat", model : "500", color : "white"},
+            car03 : {brand : "Volvo", model : "XC90", color : "black"}
+        };
+
     });
 
     app.directive("w3TestDirective", function() {
         return {
+            restrict : "EACM",
             template : "<h1>Made by a directive!</h1>"
         };
     });
+
+
+    app.service('hexafy', function() {
+        this.myFunc = function (x) {
+            return x.toString(16);
+        }
+    });
+
+    app.filter('myFormat', ['hexafy', function(hexafy) {
+        return function(x) {
+            var i, c, txt = "";
+            for (i = 0; i < x.length; i++) {
+                c = x[i];
+                if (i % 2 == 0) {
+                    c = c.toUpperCase()+hexafy.myFunc(i);
+                }
+                txt += c;
+            }
+            return txt;
+        };
+    }]);
+
 </script>
+
+
+
 
 </body>
 </html>

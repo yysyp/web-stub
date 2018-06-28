@@ -1,0 +1,9 @@
+1, more than one app in a html element?
+
+2, more than one controller in a html element?
+
+3, ng-valid / ng-invalid / ng-valid-key / ng-invalid-key
+
+4, The HTML form attribute novalidate is used to disable default browser validation.
+
+
