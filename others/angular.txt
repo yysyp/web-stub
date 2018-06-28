@@ -7,3 +7,26 @@
 4, The HTML form attribute novalidate is used to disable default browser validation.
 
 
+5, How? what tool is going to convert this?
+    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- js files will be automatically insert here -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+A: wiredep will inject the files to replace the placeholder here.
+
+6, /** @ngInject */ ? What is this?
+I've a projet in typescript and /* @nginject */ is used as an annotation.
+I'm using it only on controllers.
+Example in modal class :
+static $inject = ['$uibModalInstance', 'i18nService', 'uiGridConstants', 'title', 'type'];
+constructor($uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, $http: angular.IHttpService, i18nService: any, uiGridConstants: any, title: string, type: string) { ... }
+
+Is the same as
+/* @ngInject */
+constructor($uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, $http: angular.IHttpService, i18nService: any, uiGridConstants: any, title: string,  type: string) { ... }
