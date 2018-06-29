@@ -1,12 +1,15 @@
+https://docs.angularjs.org/api
+
+------
 1, more than one app in a html element?
-
+------
 2, more than one controller in a html element?
-
+------
 3, ng-valid / ng-invalid / ng-valid-key / ng-invalid-key
-
+------
 4, The HTML form attribute novalidate is used to disable default browser validation.
 
-
+------
 5, How? what tool is going to convert this?
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
     <!-- inject:js -->
@@ -19,7 +22,7 @@
     <!-- endbuild -->
 
 A: wiredep will inject the files to replace the placeholder here.
-
+------
 6, /** @ngInject */ ? What is this?
 I've a projet in typescript and /* @nginject */ is used as an annotation.
 I'm using it only on controllers.
@@ -30,3 +33,125 @@ constructor($uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, $http: ang
 Is the same as
 /* @ngInject */
 constructor($uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, $http: angular.IHttpService, i18nService: any, uiGridConstants: any, title: string,  type: string) { ... }
+
+------
+7,
+function() {
+    ...
+    var directive = {};
+    return directive; // Should excuting process returned already? why below there are still functions?
+    ...
+    function() {
+    };
+
+}
+
+A: https://stackoverflow.com/questions/26927617/defining-functions-after-return
+Declaration after return statement.
+
+Sometimes this is called "hoisting" the declarations to the top of the function (something similar happens with var, too; more below).
+When control enters an execution context (e.g., when you enter a function, enter the global environment at the beginning of the program, or enter eval code), one of the several things that happens before any step-by-step code is executed is that all of the function declarations in that context are processed and those functions are created. Since save and validate are defined by function declarations, they're created before the first step-by-step line of the code runs, and so it doesn't matter that they're after the return.
+Here's what the JavaScript engine does when you call a function (e.g., when calling dataService), with the function declarations step highlighted:
+1, Set the value of this
+2, Create a new environment (let's call it env) for the call
+3, Set up a reference to the function’s [[Scope]] property on env (this is part of how closures work)
+4, Create a binding object (let's call it bindings) for the environment to hold our the various names defined by the function (this is another part of how closures work, and also how variable references are resolved)
+5, If the function has a name, add it to bindings as a property referring to the function
+6, Add the formal function arguments to bindings
+7, ***Process function declarations, adding their names to bindings
+8, Create the arguments object, add it to bindings
+9, Add each variable declared with var to bindings (if not already defined) with the value undefined
+10, Process the stepwise code in the function
+11, Set the call expression’s result
+
+
+------
+8, https://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
+Three ways to create and register our own service:
+AngularJS: Factory vs Service vs Provider
+--
+1, When you’re using a Factory you create an object, add properties to it, then return that same object:
+app.controller('myFactoryCtrl', function ($scope, myFactory) {
+  $scope.artist = myFactory.getArtist()
+})
+
+app.factory('myFactory', function () {
+  var _artist = '';
+  var service = {}
+
+  service.getArtist = function () {
+    return _artist
+  }
+
+  return service;
+})
+
+--
+2, When you’re using Service, it’s instantiated with the ‘new’ keyword. Because of that, you’ll add properties to ‘this’ and the service will return ‘this’.
+app.controller('myServiceCtrl', function ($scope, myService) {
+  $scope.artist = myService.getArtist();
+});
+
+app.service('myService', function () {
+  var _artist = '';
+  this.getArtist = function () {
+    return _artist;
+  }
+});
+
+--
+3, Providers are the only service you can pass into your .config() function. Use a provider when you want to provide module-wide configuration for your service object before making it available.
+The biggest thing to remember about Providers is that they’re the only service that you can pass into the app.config portion of your application. This is of huge importance if you’re needing to alter some portion of your service object before it’s available everywhere else in your application.
+
+app.controller('myProviderCtrl', function ($scope, myProvider) {
+  $scope.artist = myProvider.getArtist();
+  $scope.data.thingFromConfig = myProvider.thingOnConfig;
+});
+
+app.provider('myProvider', function () {
+  this._artist = '';
+  this.thingFromConfig = '';
+
+  //Only the properties on the object returned from $get are available in the controller.
+  this.$get = function () {
+    var that = this;
+    return {
+      getArtist: function () {
+        return that._artist;
+      },
+      thingonConfig: that.thingFromConfig
+    }
+  }
+});
+
+app.config(function (myProviderProvider) {
+  myProviderProvider.thingFromConfig = 'This was set in config()';
+})
+
+
+
+
+Providers are the only service you can pass into your .config() function. Use a provider when you want to provide module-wide configuration for your service object before making it available.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
