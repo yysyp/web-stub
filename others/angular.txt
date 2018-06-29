@@ -1,7 +1,11 @@
 https://docs.angularjs.org/api
 
 ------
-1, more than one app in a html element?
+1, more than one app in a html ?
+By default angularjs only auto load one ng-app, so the others need to load manually ex:
+var app2 = angular.module('app2', []);
+angular.bootstrap(document.getElementById("app2"), ['app2']);
+
 ------
 2, more than one controller in a html element?
 ------
@@ -128,20 +132,30 @@ app.config(function (myProviderProvider) {
   myProviderProvider.thingFromConfig = 'This was set in config()';
 })
 
-
+//Then use as normal way:
+angular.module('myApp')
+.controller('MainCtrl', function($scope, myProvider) {
+  //...
+});
 
 
 Providers are the only service you can pass into your .config() function. Use a provider when you want to provide module-wide configuration for your service object before making it available.
 
 
 
+------
+9, 在Angular里面，services作为单例对象在需要到的时候被创建，只有在应用生命周期结束的时候（关闭浏览器）才会被清除。而controllers在不需要的时候就会被销毁了。
 
 
+10, Angular这类东西，更多属于一种单页面Web应用解决方案，注意，这里的重点是单页面，也就是说它能发挥价值的场景是在某一个页面里，而跨页面通信不是它所侧重考虑的。
 
 
+11, Angular这类东西，更多属于一种单页面Web应用解决方案，注意，这里的重点是单页面，也就是说它能发挥价值的场景是在某一个页面里，而跨页面通信不是它所侧重考虑的。
 
 
-
+12, Angular的$q, defer, promise
+var deferred = $q.defer(); //通过$q服务注册一个延迟对象 deferred
+var promise = deferred.promise; //通过deferred延迟对象，可以得到一个承诺promise，而promise会返回当前任务的完成结果
 
 
 
